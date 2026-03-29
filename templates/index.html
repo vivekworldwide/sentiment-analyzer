@@ -107,6 +107,45 @@
             color: #c62828;
             border: 2px solid rgba(198, 64, 50, 0.3);
         }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+                margin-top: 45%;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 12px;
+            }
+
+            button {
+                position: static;
+                margin-top: 10px;
+                width: 30%;
+                font-size: 8px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .chat-box {
+                text-align: right;
+                height: 30%;
+                width: 95%;
+            }
+
+            body {
+                background-image: url(/static/mobile_bg.png);
+                background-size: cover;
+                background-position: center;
+            }
+        }
     </style>
 
 </head>
