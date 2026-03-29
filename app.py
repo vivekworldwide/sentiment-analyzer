@@ -20,7 +20,7 @@ def home():
     if request.method == 'POST':
         review = request.form['review']
         cleaned_review = clean_text(review)
-        vector = tfidf.transform([cleaned])
+        vector = tfidf.transform([cleaned_review])
         prediction = model.predict(vector)[0]
         result = prediction
     return render_template('index.html', result = result)

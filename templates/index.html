@@ -7,8 +7,10 @@
     <title>Sentiment Analyzer</title>
     <style>
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #1a1a2e;
+            font-family: Helvetica, sans-serif;
+            background-image: url(/static/bg.png);
+            background-size: cover;
+            background-position: center;
             color: white;
             display: flex;
             justify-content: center;
@@ -17,41 +19,66 @@
         }
 
         .container {
-            background: #16213e;
+            margin-top: 10%;
             padding: 40px;
             border-radius: 15px;
-            width: 500px;
+            width: 50%;
+            height: 30%;
             text-align: center;
         }
 
         h1 {
-            color: #e94560;
+            color: #282626;
+            font-size: 2.5rem;
+
         }
+
+        p {
+            color: #6b4c3b;
+            font-size: 20px;
+        }
+
 
         textarea {
             width: 100%;
             height: 150px;
             padding: 15px;
             border: none;
+            outline: none;
             border-radius: 10px;
             font-size: 16px;
-            resize: vertical;
+            resize: none;
+            background: transparent;
         }
 
+        .chat-box {
+            position: relative;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            padding: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+
         button {
-            background: #e94560;
-            color: white;
+            background: #f58b49;
+            color: rgb(33, 32, 32);
             border: none;
             padding: 12px 40px;
             font-size: 18px;
-            border-radius: 10px;
+            border-radius: 50px;
             cursor: pointer;
-            margin-top: 15px;
-
+            margin-top: 0;
+            margin-left: 10px;
+            white-space: nowrap;
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
         }
 
         button:hover {
-            background: #c81e45;
+            background: #c85f1e;
         }
 
         .result {
@@ -63,13 +90,15 @@
         }
 
         .positive {
-            background-color: #0f3460;
-            color: #4ecca3;
+            background: rgba(76, 175, 80, 0.15);
+            color: #2e7d32;
+            border: 2px solid rgba(76, 175, 80, 0.3);
         }
 
         .negative {
-            background-color: #0f3460;
-            color: #e94560;
+            background: rgba(198, 64, 50, 0.15);
+            color: #c62828;
+            border: 2px solid rgba(198, 64, 50, 0.3);
         }
     </style>
 
@@ -79,10 +108,11 @@
     <div class="container">
         <h1>🎬 Movie Sentiment Analyzer</h1>
         <p>Enter a movie review and find out if it's positive or negative</p>
-        <form method=" POST">
-            <textarea name="review" placeholder="Type your movie review here..." required></textarea>
-            <br>
-            <button type="submit">Analyze Sentiment</button>
+        <form method="POST">
+            <div class="chat-box">
+                <textarea name="review" placeholder="Type your movie review here..." required></textarea>
+                <button type="submit">Analyze Sentiment</button>
+            </div>
         </form>
         {% if result %}
         <div class="result {{ result }}">{{result | upper }}</div>
